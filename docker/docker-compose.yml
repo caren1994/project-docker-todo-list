@@ -7,7 +7,7 @@ services:
     - todofront
     - todoback
     environment:
-    - FRONT_HOST="todofrontend"
+    - FRONT_HOST=frontend
   todofront:
     image: todofrontend
     restart: on-failure
@@ -16,7 +16,7 @@ services:
     depends-on:
      - todoback
     environment:
-    - REACT_APP_API_HOST="todobackend"
+    - REACT_APP_API_HOST=backend
   todoback:
     image: todobackend
     restart: on-failure

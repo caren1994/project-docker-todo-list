@@ -1,21 +1,25 @@
 version: '3'
 services:
   todotests:
-    image: todotests:latest
+    image: todotests
     restart: on-failure
-    dependes-on:
-    - "todofront"
-    - "todoback"
-    environment:FRONT_HOST=todofrontend
+    depends-on:
+    - todofront
+    - todoback
+    environment:
+    - FRONT_HOST="todofrontend"
   todofront:
-    image:todofrontend:latest
+    image:todofrontend
     restart: on-failure
-    ports:3000:80
-    dependes-on:
-     - "todoback"
-    environment:REACT_APP_API_HOST=todobackend
+    ports:
+    - 3000:80
+    depends-on:
+     - todoback
+    environment:
+    - REACT_APP_API_HOST="todobackend"
   todoback:
-    image: todobackend:latest
+    image: todobackend
     restart: on-failure
-    ports:3001:80
+    ports:
+    - 3001:80
   

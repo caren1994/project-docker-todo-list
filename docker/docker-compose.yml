@@ -9,7 +9,7 @@ services:
     environment:
     - FRONT_HOST="todofrontend"
   todofront:
-    image:todofrontend
+    image: todofrontend
     restart: on-failure
     ports:
     - 3000:80
